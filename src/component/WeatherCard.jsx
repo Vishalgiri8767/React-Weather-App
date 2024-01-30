@@ -31,7 +31,6 @@ const WeatherCard = () => {
      setCityName(weather_data.name);
      setCountry(weather_data.sys.country);
 
- //    const wi = (weather_data.weather[0].icon)+".png";
       const icon = (weather_data.weather[0].icon);
       setWeatherIcon(icon);
   };
@@ -55,10 +54,10 @@ const WeatherCard = () => {
       <div className='bg-zinc-500 rounded-md text-white mt-8 p-8 '>
           <p className='font-semibold'>{cityName+" "+country}</p>
           <img src={`http://openweathermap.org/img/w/${weatherIcon}.png`}
-              className='w-24 h-24  left-0 right-0 mx-auto '  />
+              className='w-24 h-24  left-0 right-0 mx-auto ' />
           <p className='text-center text-xl  '>{desc}</p>
 
-          <p className=' text-4xl text-center p-4 '>{temp}<sup>/o</sup> </p>
+          <p className=' text-4xl text-center p-4 '>{temp}<sup><sup>o</sup>c</sup> </p>
           <p className='text-center text-xl '>Humidity:- {humidity}%</p>
        </div>
   
