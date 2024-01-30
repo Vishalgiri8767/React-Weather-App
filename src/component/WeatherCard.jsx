@@ -13,6 +13,7 @@ const WeatherCard = () => {
   const handleSearchCity = ()=>{
     useWeatherApi();
   };
+  
   const useWeatherApi = async() =>{
     const api_key = "b33ff06ccbc1eaafca719cd0057b78f1";
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city[0].value}&appid=${api_key}`;
