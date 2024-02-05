@@ -51,9 +51,9 @@ const WeatherCard = () => {
 
   return (
 
-    <div className='w-full h-screen flex justify-center'>
+    <div className='w-full h-screen bg-[#a9c7c4] flex justify-center'>
       <div>
-      <h1 className='text-gray-400 shadow-md text-4xl py-12 font-semibold text-center'>Weather App</h1>
+      <h1 className='text-gray-700 shadow-md text-4xl py-12 font-semibold text-center'>Weather App</h1>
       <form onSubmit={(e)=>e.preventDefault()} className='mt-4 mx-2 p-8 rounded-md bg-zinc-500'>
             <h2 className='text-left font-semibold  text-gray-400'>Enter City:</h2>
             <input  type='text' className=' cityInput border-2 mt-4 outline-none rounded-sm bg-zinc-600 text-white text-lg' />
