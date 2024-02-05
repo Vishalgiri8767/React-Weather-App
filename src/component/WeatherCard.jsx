@@ -2,20 +2,14 @@ import React, {useEffect, useState } from 'react'
 
 const WeatherCard = () => {
   const [searchCity, setSearchcity] = useState(false);
-  // const [temp ,setTemp] = useState();
-  // const [desc, setDesc] = useState();
-  // const [humidity, setHumidity] = useState();
-  // const [cityName, setCityName] = useState("");
-  // const [country, setCountry] = useState("");
-  // const [weatherIcon, setWeatherIcon] = useState("");
-
-  const [weatherData, setWeatherData] = useState({
-    temp:"",
-    desc:"",
-    humidity:"",
-    cityName:"",
-    country:"",
-    weatherIcon:""
+  const [weatherData, setWeatherData] =
+   useState({
+        temp:"",
+        desc:"",
+        humidity:"",
+        cityName:"",
+        country:"",
+        weatherIcon:"",
   })
   const city = document.getElementsByClassName("cityInput");
   
@@ -31,7 +25,7 @@ const WeatherCard = () => {
     const data = await fetch (url);
     const weather_data = await data.json();
 
-    console.log(weather_data);
+//    console.log(weather_data);
     const tempDeg = (weather_data.main.temp-273.15).toFixed(2);
      
       setWeatherData({
@@ -78,4 +72,4 @@ const WeatherCard = () => {
   )
 }
 
-export default WeatherCard
+export default WeatherCard;
