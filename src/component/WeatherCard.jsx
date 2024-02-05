@@ -25,9 +25,7 @@ const WeatherCard = () => {
     const data = await fetch (url);
     const weather_data = await data.json();
 
-//    console.log(weather_data);
     const tempDeg = (weather_data.main.temp-273.15).toFixed(2);
-     
       setWeatherData({
         temp:tempDeg,
         desc:weather_data.weather[0].description,
