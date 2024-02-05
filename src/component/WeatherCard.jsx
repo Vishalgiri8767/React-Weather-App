@@ -1,6 +1,7 @@
 import React, {useEffect, useState } from 'react'
 
 const WeatherCard = () => {
+  const [searchCity, setSearchcity] = useState(false);
   // const [temp ,setTemp] = useState();
   // const [desc, setDesc] = useState();
   // const [humidity, setHumidity] = useState();
@@ -19,6 +20,7 @@ const WeatherCard = () => {
   const city = document.getElementsByClassName("cityInput");
   
   const handleSearchCity = ()=>{
+    setSearchcity(true);
     useWeatherApi();
   };
 
@@ -32,17 +34,6 @@ const WeatherCard = () => {
     console.log(weather_data);
     const tempDeg = (weather_data.main.temp-273.15).toFixed(2);
      
-    //  setTemp(tempDeg);
-    //  setDesc(weather_data.weather[0].description);
-  //    const humidity = (weather_data.main.humidity);
-    //  setHumidity(humidity);
-
-    //  setCityName(weather_data.name);
-    //  setCountry(weather_data.sys.country);
-
-    //   const icon = (weather_data.weather[0].icon);
-    //   setWeatherIcon(icon);
-
       setWeatherData({
         temp:tempDeg,
         desc:weather_data.weather[0].description,
@@ -60,7 +51,7 @@ const WeatherCard = () => {
 
   return (
 
-    <div className='w-full h-screen bg-blue-500 flex justify-center'>
+    <div className='w-full h-screen flex justify-center'>
       <div>
       <h1 className='text-gray-400 shadow-md text-4xl py-12 font-semibold text-center'>Weather App</h1>
       <form onSubmit={(e)=>e.preventDefault()} className='mt-4 mx-2 p-8 rounded-md bg-zinc-500'>
@@ -69,6 +60,8 @@ const WeatherCard = () => {
             <button onClick={handleSearchCity} className='bg-green-500 px-4  p-1 font-bold rounded'>Check</button>
         </form>
 
+    {   
+    searchCity &&
       <div className='bg-zinc-500 rounded-md text-white mt-8 p-8 '>
           <p className='font-semibold'>{weatherData.cityName+" "+weatherData.country}</p>
           <img src={`http://openweathermap.org/img/w/${weatherData.weatherIcon}.png`}
@@ -78,6 +71,7 @@ const WeatherCard = () => {
           <p className=' text-4xl text-center p-4 '>{weatherData.temp}<sup><sup>o</sup>c</sup> </p>
           <p className='text-center text-xl '>Humidity:- {weatherData.humidity}%</p>
        </div>
+       }
   
       </div>
     </div>
